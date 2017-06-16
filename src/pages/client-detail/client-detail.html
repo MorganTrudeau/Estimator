@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Client Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Name</ion-label>
+      <ion-input type="text" #name [(ngModel)]="client.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Phone</ion-label>
+      <ion-input type="tel" #phone [(ngModel)]="client.phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Email</ion-label>
+      <ion-input type="text" #email [(ngModel)]="client.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Street</ion-label>
+      <ion-input type="text" #street [(ngModel)]="client.street"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>City</ion-label>
+      <ion-input type="text" #city [(ngModel)]="client.city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>State/Province</ion-label>
+      <ion-input type="text" #region [(ngModel)]="client.region"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Postal/Zip Code</ion-label>
+      <ion-input type="text" #code [(ngModel)]="client.code"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Country</ion-label>
+      <ion-input type="text" #country [(ngModel)]="client.country"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="buttonDiv">
+    <button class="buttonPair" ion-button (click)="changeItem(client)">Confirm</button>
+    <button class="buttonPair" ion-button (click)="deleteItem()">Delete</button>
+    <button class="buttonPair" ion-button (click)="backToClientPage()">Exit</button>
+  </div>
+</ion-content>

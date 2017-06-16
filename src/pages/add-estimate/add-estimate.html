@@ -1,0 +1,68 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons>
+      <button ion-button icon-only style="height=10px; float:left; margin-left:10px;" (click)="presentPopover($event, invoice.value, clientSelect.value, date.value)">
+        <ion-icon style="margin-left"name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Create Estimate</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <ion-item>
+      <ion-label>Client</ion-label>
+        <ion-select style="position: fixed;margin-left:101px" #clientSelect [(ngModel)]="estimate.client" (ngModelChange)="clientChange(clientSelect.value, invoice.value, clientSelect.value, date.value)">
+          <ion-option value="addNew">Add New</ion-option>
+          <ion-option *ngFor="let client of comboClients" [value]="client">
+            {{ client }}
+          </ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Invoice</ion-label>
+      <ion-input type="text" value="{{estimate.invoice}}"  #invoice></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Date</ion-label>
+      <ion-input type="date" value="{{ estimate.date }}" #date>{{ date }}</ion-input>
+    </ion-item>
+    <br>
+
+    <ion-list-header class="estimateHeader">
+    <h3>Estimate</h3>
+    </ion-list-header>
+
+    <ion-row>
+      <ion-col width-50 style="text-align: center">
+        <button ion-button style="width:300px;" (click)="goToAddEstimateItemPage(invoice.value, clientSelect.value, date.value)">Add to Estimate</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+      <button ion-item *ngFor="let estimateItem of estimateItems" (click)="showEstimateItemDetail(estimateItem, invoice.value, clientSelect.value, date.value)">
+        <h2 class="rightListText"> Qty: {{ estimateItem.quantity }}</h2>
+        <h2>{{ estimateItem.name }}</h2>
+        <h3>{{ estimateItem.type }}</h3><h3 class="rightListText">{{ estimateItem.subTotal | currency:'CAD':true }}</h3>
+        <p>{{ estimateItem.size }}</p>
+      </button>
+    </ion-list>
+
+    <ion-list-header class="estimateHeader"></ion-list-header>
+
+    <p class="totals">Subtotal: {{ subTotal | currency:'CAD':true }}</p>
+    <p class="totals">Tax: {{ tax | currency:'CAD':true }}</p>
+    <p class="totals">Grand Total: {{ grandTotal | currency:'CAD':true }}</p>
+
+    <!--ion-row>
+      <ion-col width-50 style="text-align: center">
+        <button ion-button style="width:300px;" (click)="displayPDF()">View PDF</button>
+      </ion-col>
+    </ion-row-->
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Invoices</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-row>
+     <ion-col width-50 style="text-align: center">
+       <button ion-button style="width:300px;" (click)="createNewEstimate()">Add Invoice</button>
+     </ion-col>
+   </ion-row>
+  <ion-list>
+    <button ion-item *ngFor="let invoice of invoices" (click)="showEstimateDetail(invoice)">
+      {{ invoice.invoice }}
+    </button>
+  </ion-list>
+</ion-content>

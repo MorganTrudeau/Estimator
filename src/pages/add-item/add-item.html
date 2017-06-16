@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Add Item</ion-title>
+
+    <ion-buttons end>
+      <button class="rightNavButton" ion-button clear (click)="cancel()">
+        Cancel
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Name</ion-label>
+
+        <ion-select #nameSelect style="position: fixed;margin-left:101px" [(ngModel)]="selectedItem" (ngModelChange)="itemChange(nameSelect.value, selectedItem)">
+          <ion-option value="addNew">Add New</ion-option>
+          <ion-option *ngFor="let name of comboNames" [value]="name">
+            {{ name }}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label fixed>Type</ion-label>
+        <ion-input type="text" #type></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Size</ion-label>
+        <ion-input type="text" #size></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Price</ion-label>
+        <ion-input type="text" #price></ion-input>
+      </ion-item>
+    </ion-list>
+
+  <ion-row>
+     <ion-col width-50 style="text-align: center">
+       <button ion-button style="width:300px;" (click)="saveItem(nameSelect.value, type.value, size.value, price.value)">Save Item</button>
+     </ion-col>
+   </ion-row>
+</ion-content>

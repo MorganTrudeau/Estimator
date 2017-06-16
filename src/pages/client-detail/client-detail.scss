@@ -1,0 +1,33 @@
+page-client-detail {
+  .buttonDiv {
+    text-align: center;
+  }
+
+  .buttonPair {
+    width: 90px;
+  }
+
+  .item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus) .text-input {
+    border-color: white;
+  }
+
+  .item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: #dedede;
+  box-shadow: inset 0 -1px 0 0 #dedede;
+}
+
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+  border-bottom-color: #dedede;
+  box-shadow: inset 0 -1px 0 0 #dedede;
+}
+
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+  border-bottom-color: #dedede;
+  box-shadow: inset 0 -1px 0 0 #dedede;
+}
+
+.list-md .item-input.input-has-focus:last-child {
+  border-bottom-color: #dedede;
+  box-shadow: inset 0 -1px 0 0 #dedede;
+}
+}

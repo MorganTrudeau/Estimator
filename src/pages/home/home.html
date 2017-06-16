@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title class="title">Estimates</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-row>
+   <ion-col width-50 style="text-align: center">
+     <button style="width:300px;" ion-button (click)="createNewEstimate()">Add Estimate</button>
+    </ion-col>
+  </ion-row>
+  
+  <ion-list>
+    <button ion-item *ngFor="let estimate of estimates" (click)="showEstimateDetail(estimate)">
+      <h2>{{ estimate.invoice }}</h2>
+      <h3>{{ estimate.date }}</h3>
+    </button>
+  </ion-list>
+</ion-content>

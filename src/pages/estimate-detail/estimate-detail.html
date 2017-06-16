@@ -1,0 +1,43 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Estimate Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Name</ion-label>
+      <ion-input type="text" #name [(ngModel)]="estimateItem.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Type</ion-label>
+      <ion-input type="text" #type [(ngModel)]="estimateItem.type"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Size</ion-label>
+      <ion-input type="text" #size [(ngModel)]="estimateItem.size"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Price</ion-label>
+      <ion-input type="text" #price [(ngModel)]="estimateItem.price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Quantity</ion-label>
+      <ion-input type="text" #quantity [(ngModel)]="estimateItem.quantity"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="buttonDiv">
+    <button class="buttonPair" ion-button (click)="changeItem(estimateItem)">Confirm</button>
+    <button class="buttonPair" ion-button (click)="deleteItem()">Delete</button>
+  </div>
+</ion-content>

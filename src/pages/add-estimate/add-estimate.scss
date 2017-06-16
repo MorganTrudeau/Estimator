@@ -1,0 +1,24 @@
+page-add-estimate {
+  .estimateHeader {
+    background-color: dimgrey;
+    color: white;
+  }
+
+  .rightListText {
+    float: right;
+  }
+
+  .totals {
+    text-align: right;
+    margin-right: 15px;
+  }
+
+  .alert-md.alert-title {
+    font-size: 10px;
+  }
+
+  .toolbar-title-md {
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+}
